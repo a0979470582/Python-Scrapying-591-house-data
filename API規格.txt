@@ -1,0 +1,46 @@
+"""API規格
+
+    http://104.199.237.229:8888/search?region=新北市
+    
+    可選參數:可選值(多個值請用逗號分隔, 例如search?region="新北市","台北市")
+    region: 新北市; 台北市
+    gender: 男生; 女生; 男女生皆可
+    housetype: 屋主; 代理人; 仲介
+    phoneNumber: 任意電話號碼, 例如0912345678
+    homeOwnerIsWoman: 0:無限制 1:女屋主
+    homeOwnerLastName: 任意屋主姓氏
+    
+    
+    回傳的Json Schema
+    {
+      "totalNumber": 20, 
+      "data": [
+        {
+          "postid": 10678298, 
+          "region": "台北市", 
+          "renterName": "王阿姨", 
+          "housetype": "屋主", 
+          "shape": "公寓", 
+          "kind": "分租套房", 
+          "gender": "女生", 
+          "phoneNumber": "0931287385"
+        }, ....
+      ]
+    }
+    
+    題目要求
+    1.男生可承租 且 位於新北
+      http://104.199.237.229:8888/search?region=新北市&gender=男生
+    2.以聯絡電話搜尋
+      http://104.199.237.229:8888/search?phoneNumber=0937938302
+    3.非屋主自行刊登
+      http://104.199.237.229:8888/search?housetype=仲介,代理人
+    4.位於台北 且 女性屋主 且 姓氏為吳
+      http://104.199.237.229:8888/search?region=台北市&homeOwnerIsWoman=1&homeOwnerLastName=吳
+    
+    
+    註記:
+    1. MongoDB可針對可搜索欄位加入索引, 可加快搜索速度, 但目前資料數少還不需要, 參考:
+        https://www.runoob.com/mongodb/mongodb-indexing.html
+    2. 在生產環境中應使用更為穩定的Web框架
+"""

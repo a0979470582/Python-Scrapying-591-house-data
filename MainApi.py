@@ -5,6 +5,7 @@ import dbHelper as db
 from pymongo import MongoClient
 import json
 
+
 app = flask.Flask(__name__)
 app.config['JSON_AS_ASCII'] = False#可顯示UTF-8字元
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True#加入換行和縮排
